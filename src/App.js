@@ -2,7 +2,7 @@ import { Lightning, Utils, Router } from 'wpe-lightning-sdk';
 import provider from "./lib/data-provider";
 import routes from "./lib/routes";
 import widgets from "./lib/widgets";
-import {init as initApi} from "./lib/Api"
+import {init as initApi} from "./lib/api"
 import {Logo, Menu} from "./widgets";
 import Background from "./Background"
 
@@ -93,6 +93,12 @@ export default class App extends Lightning.Component {
 
     _getFocused() {
         return Router.getActivePage();
+    }
+    
+    $setBackgroundVisible(visible) {
+      this.tag('Background').patch({
+        visible,
+      })
     }
 
 }
